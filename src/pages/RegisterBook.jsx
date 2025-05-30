@@ -1,8 +1,11 @@
-import { useState } from 'react';
+import { useNavigate, useLocation } from 'react-router-dom';
 import BookForm from '../components/BookForm/BookForm';
 import { addBook, updateBook } from '../utils/bookData';
+import './RegisterBook.css';
 
-const RegisterBook = ({ history, location }) => {
+const RegisterBook = () => {
+  const navigate = useNavigate();
+  const location = useLocation();
   const bookToEdit = location.state?.book;
 
   const handleSubmit = (book) => {
@@ -11,11 +14,11 @@ const RegisterBook = ({ history, location }) => {
     } else {
       addBook(book);
     }
-    history.push('/books');
+    navigate('/books');
   };
 
   return (
-    <div className="register-book">
+    <div className="register-book-page">
       <h1>{bookToEdit ? 'Editar Livro' : 'Cadastrar Novo Livro'}</h1>
       <BookForm onSubmit={handleSubmit} initialData={bookToEdit || {}} />
     </div>

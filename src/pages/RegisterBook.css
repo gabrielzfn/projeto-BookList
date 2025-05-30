@@ -1,0 +1,11 @@
+.register-book-page {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 2rem;
+}
+
+.register-book-page h1 {
+  color: #2c3e50;
+  margin-bottom: 2rem;
+  text-align: center;
+}

@@ -22,7 +22,12 @@ const BookList = ({ books, onDelete, onEdit }) => {
                 <td>{book.title}</td>
                 <td>{book.author}</td>
                 <td>{book.genre}</td>
-                <td>{new Date(book.readingDate).toLocaleDateString('pt-BR')}</td>
+                {/* Verifica se readingDate existe antes de formatar */}
+                <td>
+                  {book.readingDate
+                    ? new Date(book.readingDate).toLocaleDateString('pt-BR')
+                    : ''}
+                </td>
                 <td>
                   <button onClick={() => onEdit(book)} className="edit-btn">Editar</button>
                   <button onClick={() => onDelete(book.id)} className="delete-btn">Excluir</button>
